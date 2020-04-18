@@ -36,13 +36,13 @@ def preprocess(img):
 def hello():
     return 'Hello World!'
 
-@app.route("/heatmap", methods=['GET'])
+@app.route("/heatmap", methods=['PUT'])
 def generateHeatmap():
     global sess
     global graph
     with graph.as_default():
         K.tensorflow_backend.set_session(sess)
-        data = request.args.get('image')
+        data = request.get_json()
 
         # imgstring = data["imageData"]
         # imgdata = base64.b64decode(imgstring)
