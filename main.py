@@ -34,7 +34,7 @@ def preprocess(img):
 
 @app.route("/", methods=['GET'])
 def hello():
-    return 'Hello World!'
+    return 'Hello World!!!'
 
 @app.route("/heatmap", methods=['PUT'])
 def generateHeatmap():
