@@ -1,6 +1,6 @@
-from tensorflow.keras.models import load_model
-from tensorflow.keras import backend as K
-from tensorflow.keras.preprocessing.image import img_to_array
+from keras.models import load_model
+from keras import backend as K
+from keras.preprocessing.image import img_to_array
 from skimage.transform import resize
 
 import matplotlib
@@ -12,7 +12,7 @@ import numpy as np
 import base64
 import io
 import tensorflow as tf
-# from tensorflow.keras.backend.tensorflow_backend import set_session
+from keras.backend.tensorflow_backend import set_session
 from flask import Flask, jsonify, request
 from flask_cors import CORS, cross_origin
 app = Flask(__name__)
@@ -23,7 +23,7 @@ graph = tf.get_default_graph()
 
 # IMPORTANT: models have to be loaded AFTER SETTING THE SESSION for keras! 
 # Otherwise, their weights will be unavailable in the threads after the session there has been set
-K.set_session(sess)
+K.tensorflow_backend.set_session(sess)
 model = load_model('./best_model.h5')
 
 def preprocess(img):
@@ -41,7 +41,7 @@ def generateHeatmap():
     global sess
     global graph
     with graph.as_default():
-        K.set_session(sess)
+        K.tensorflow_backend.set_session(sess)
         data = request.get_json()
 
         imgstring = data["imageData"]
