@@ -18,7 +18,7 @@ from flask_cors import CORS, cross_origin
 app = Flask(__name__)
 cors = CORS(app)
 
-sess = tf.Session()
+sess = tf.compat.v1.Session()
 graph = tf.get_default_graph()
 
 # IMPORTANT: models have to be loaded AFTER SETTING THE SESSION for keras! 
