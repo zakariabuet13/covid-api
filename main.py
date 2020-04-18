@@ -12,7 +12,7 @@ import numpy as np
 import base64
 import io
 import tensorflow as tf
-from tensorflow.keras.backend.tensorflow_backend import set_session
+# from tensorflow.keras.backend.tensorflow_backend import set_session
 from flask import Flask, jsonify, request
 from flask_cors import CORS, cross_origin
 app = Flask(__name__)
