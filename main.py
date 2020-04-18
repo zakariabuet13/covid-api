@@ -1,6 +1,6 @@
-from keras.models import load_model
-from keras import backend as K
-from keras.preprocessing.image import img_to_array
+from tensorflow.keras.models import load_model
+from tensorflow.keras import backend as K
+from tensorflow.keras.preprocessing.image import img_to_array
 from skimage.transform import resize
 
 import matplotlib
@@ -12,7 +12,7 @@ import numpy as np
 import base64
 import io
 import tensorflow as tf
-from keras.backend.tensorflow_backend import set_session
+from tensorflow.keras.backend.tensorflow_backend import set_session
 from flask import Flask, jsonify, request
 from flask_cors import CORS, cross_origin
 app = Flask(__name__)
