@@ -25,6 +25,7 @@ graph = tf.get_default_graph()
 K.tensorflow_backend.set_session(sess)
 model = load_model('./best_model.h5')
 
+
 def preprocess(img):
     img = img_to_array(img)
     img = np.expand_dims(img, axis=0)
@@ -38,6 +39,7 @@ def hello():
 
 @app.route("/heatmap", methods=['PUT'])
 def generateHeatmap():
+    global model
     global sess
     global graph
     with graph.as_default():
